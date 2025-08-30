@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome to the To-Do app</h1>
+    <div class="modal-container" id="modal-container">
+        <div class="registration-modal" id="registration-modal">
+            <h2>Register</h2>
+            <form id="registration-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username" required>
+                <label for="userage">Age</label>
+                <input type="number" id="userage" placeholder="Age" required>
+                <label for="usergender">Gender</label>
+                <select name="usergender" id="usergender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="useremail">Email</label>
+                <input type="email" id="useremail" placeholder="Email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="RegisterButton">Register</button>
+                <a href="#login-modal" id="login-link">Already have an account? Login</a>
+            </form>
+        </div>
+        <div class="login-modal" id="login-modal">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" id="LoginButton">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="home-page" id="home-page">
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Add a new task">
+            <button type="submit" id="AddTaskButton">Add Task</button>
+            <button id="LogoutButton">Logout</button>
+        </form>
+    </div>
+    <ul id="task-list">
+        <!-- Tasks will be appended here -->
+    </ul>
+    <div id="side-panel">
+        <!-- profile icon -->
+        <img src="data:image/png;base64,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"
+            alt="Profile Icon" id="profile-icon">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js " type="module"></script>
+</body>
+
+</html>
